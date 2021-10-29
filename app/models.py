@@ -25,3 +25,4 @@ class Leitura(models.Model):
     status = models.CharField(blank=False, max_length=2, null=False, choices=STATUS_CHOICES)
     nota = models.IntegerField(null=True)
 
+
