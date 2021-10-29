@@ -1,0 +1,143 @@
+{% extends "base.html"%}
+
+{% block title %}
+Leituras
+{% endblock title %}
+
+{% block content %}
+<!-- Content Header (Page header) -->
+    {% include 'includes/content-header.html' with title='Tabela de leituras' %}
+
+  <!-- Main content -->
+  <section class="content">
+      <div class="container-fluid">
+          <div class="row" style="margin-bottom: 10px">
+              <div class="col-12" style="display: flex; justify-content: flex-end;">
+                <button class="btn btn-primary">Cadastrar Leitura</button>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-12">
+                  <div class="card">
+                      <!-- /.card-header -->
+                      <div class="card-body">
+                          <table id="example1" class="table table-bordered table-hover">
+                              <thead>
+                                  <tr>
+                                      <th>Título</th>
+                                      <th>Gênero</th>
+                                      <th>Status</th>
+                                      <th>Nota</th>
+                                      <td></td>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>Título 1</td>
+                                      <td>Terror</td>
+                                      <td><span class="badge badge-success">Lido</span></td>
+                                      <td>
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star"></span>
+                                          <span class="fa fa-star"></span>
+                                      </td>
+                                      <td class="text-right">
+                                          <a class="btn btn-primary btn-sm" href="#">
+                                              <i class="fas fa-folder">
+                                              </i>
+                                              View
+                                          </a>
+                                          <a class="btn btn-info btn-sm" href="#">
+                                              <i class="fas fa-pencil-alt">
+                                              </i>
+                                              Edit
+                                          </a>
+                                          <a class="btn btn-danger btn-sm" href="#">
+                                              <i class="fas fa-trash">
+                                              </i>
+                                              Delete
+                                          </a>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>Título 1</td>
+                                      <td>Terror</td>
+                                      <td><span class="badge badge-success">Lido</span></td>
+                                      <td>
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star"></span>
+                                          <span class="fa fa-star"></span>
+                                      </td>
+                                      <td class="text-right">
+                                          <a class="btn btn-primary btn-sm" href="#">
+                                              <i class="fas fa-folder">
+                                              </i>
+                                              View
+                                          </a>
+                                          <a class="btn btn-info btn-sm" href="#">
+                                              <i class="fas fa-pencil-alt">
+                                              </i>
+                                              Edit
+                                          </a>
+                                          <a class="btn btn-danger btn-sm" href="#">
+                                              <i class="fas fa-trash">
+                                              </i>
+                                              Delete
+                                          </a>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>Título 1</td>
+                                      <td>Terror</td>
+                                      <td><span class="badge badge-success">Lido</span></td>
+                                      <td>
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star"></span>
+                                          <span class="fa fa-star"></span>
+                                      </td>
+                                      <td class="text-right">
+                                          <a class="btn btn-primary btn-sm" href="#">
+                                              <i class="fas fa-folder">
+                                              </i>
+                                              View
+                                          </a>
+                                          <a class="btn btn-info btn-sm" href="#">
+                                              <i class="fas fa-pencil-alt">
+                                              </i>
+                                              Edit
+                                          </a>
+                                          <a class="btn btn-danger btn-sm" href="#">
+                                              <i class="fas fa-trash">
+                                              </i>
+                                              Delete
+                                          </a>
+                                      </td>
+                                  </tr>
+
+                              </tbody>
+                              <tfoot>
+
+                              </tfoot>
+                          </table>
+                      </div>
+                      <!-- /.card-body -->
+                  </div>
+                  <!-- /.card -->
+
+
+              </div>
+              <!-- /.col -->
+          </div>
+          <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+{% endblock content %}
