@@ -21,8 +21,9 @@ class Leitura(models.Model):
         ("LE", "Em leitura"),
         ("LI", "Lido")
     )
-    livro = models.ManyToManyField(Livro)
+    livro = models.ForeignKey(Livro, on_delete=models.SET_NULL, null=True)
     status = models.CharField(blank=False, max_length=2, null=False, choices=STATUS_CHOICES)
-    nota = models.IntegerField(null=True)
+    nota = models.IntegerField(null=True, blank=True, default=0)
+    resenha = models.TextField(blank=True, null=True)
 
 

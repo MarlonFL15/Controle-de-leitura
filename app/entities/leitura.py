@@ -1,8 +1,9 @@
 class Leitura():
-    def __init__(self, livro, nota, status):
+    def __init__(self, livro, nota, status, resenha):
         self.__livro = livro
         self.__nota = nota
         self.__status = status
+        self.__resenha = resenha
 
     @property
     def livro(self):
@@ -27,3 +28,11 @@ class Leitura():
     @status.setter
     def status(self, status):
         self.__status = status
+
+    @property
+    def resenha(self):
+        return self.__resenha
+
+    @resenha.setter
+    def resenha(self, resenha):
+        self.__resenha = resenha

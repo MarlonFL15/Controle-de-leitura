@@ -1,4 +1,5 @@
-{% extends "base.html" %}
+{% extends "base.html"%}
+{% load custom_tags %}
 
 {% block title %}
 Leituras
@@ -6,152 +7,90 @@ Leituras
 
 {% block content %}
 <!-- Content Header (Page header) -->
-  <section class="content-header">
-      <div class="container-fluid">
-          <div class="row mb-2">
-              <div class="col-sm-6">
-                  <h1>Tabela de leituras</h1>
-              </div>
-              <div class="col-sm-6">
-                  <ol class="breadcrumb float-sm-right">
-                      <li class="breadcrumb-item"><a href="#">Livros</a></li>
+{% include 'includes/content-header.html' with title='Cadastrar leitura' %}
 
-                  </ol>
-              </div>
-          </div>
-      </div><!-- /.container-fluid -->
-  </section>
+<!-- Main content -->
+<section class="content  d-flex justify-content-center">
+	<div class="container-fluid p-5">
+		<div class="card">
+			<div class="card-body">
+				<form method="post">
+					{% csrf_token %}
+					<div class="form-group row">
+						<div class="col">
+							<label>Livro</label>
+							{{form.livro | addClass:'form-control'}}
+						</div>
+						<div class="col">
+							<label>Autor</label>
+							<input type="text" id="autor" class="form-control" disabled placeholder="Autor">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col">
+							<label>Status</label>
+							{{form.status | addClass:'form-control'}}
+						</div>
+						<div class="col-6" >
+							<label>Avaliação</label>
+							<div class="form-control" style="border: 0">
+								
+								<div class="rating">
+									<input type="radio" name="rating" id="rating-5" value="5">
+									<label for="rating-5"></label>
+									<input type="radio" name="rating" id="rating-4" value="4">
+									<label for="rating-4"></label>
+									<input type="radio" name="rating" id="rating-3" value="3">
+									<label for="rating-3"></label>
+									<input type="radio" name="rating" id="rating-2" value="2">
+									<label for="rating-2"></label>
+									<input type="radio" name="rating" id="rating-1" value="1">
+									<label for="rating-1"></label>
+								</div>
+							</div>
+						</div>
 
-  <!-- Main content -->
-  <section class="content">
-      <div class="container-fluid">
-          <div class="row" style="margin-bottom: 10px">
-              <div class="col-12" style="display: flex; justify-content: flex-end;">
-                <button class="btn btn-primary">Cadastrar Leitura</button>
-              </div>
-          </div>
+					</div>
+					<div class="form-group row">
+						<div class="col">
+							<label>Resenha</label>
+							{{form.resenha | addClass:'summernote'}}
+						</div>
+					</div>
+					<div class="d-flex justify-content-end b-1">
+						<button class="btn btn-secondary m-1" type="button">Voltar</button>
+						<button class="btn btn-primary m-1" type="submit">Enviar</button>
+					</div>
 
-          <div class="row">
-              <div class="col-12">
-                  <div class="card">
-                      <!-- /.card-header -->
-                      <div class="card-body">
-                          <table id="example1" class="table table-bordered table-hover">
-                              <thead>
-                                  <tr>
-                                      <th>Título</th>
-                                      <th>Gênero</th>
-                                      <th>Status</th>
-                                      <th>Nota</th>
-                                      <td></td>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                      <td>Título 1</td>
-                                      <td>Terror</td>
-                                      <td><span class="badge badge-success">Lido</span></td>
-                                      <td>
-                                          <span class="fa fa-star checked"></span>
-                                          <span class="fa fa-star checked"></span>
-                                          <span class="fa fa-star checked"></span>
-                                          <span class="fa fa-star"></span>
-                                          <span class="fa fa-star"></span>
-                                      </td>
-                                      <td class="text-right">
-                                          <a class="btn btn-primary btn-sm" href="#">
-                                              <i class="fas fa-folder">
-                                              </i>
-                                              View
-                                          </a>
-                                          <a class="btn btn-info btn-sm" href="#">
-                                              <i class="fas fa-pencil-alt">
-                                              </i>
-                                              Edit
-                                          </a>
-                                          <a class="btn btn-danger btn-sm" href="#">
-                                              <i class="fas fa-trash">
-                                              </i>
-                                              Delete
-                                          </a>
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>Título 1</td>
-                                      <td>Terror</td>
-                                      <td><span class="badge badge-success">Lido</span></td>
-                                      <td>
-                                          <span class="fa fa-star checked"></span>
-                                          <span class="fa fa-star checked"></span>
-                                          <span class="fa fa-star checked"></span>
-                                          <span class="fa fa-star"></span>
-                                          <span class="fa fa-star"></span>
-                                      </td>
-                                      <td class="text-right">
-                                          <a class="btn btn-primary btn-sm" href="#">
-                                              <i class="fas fa-folder">
-                                              </i>
-                                              View
-                                          </a>
-                                          <a class="btn btn-info btn-sm" href="#">
-                                              <i class="fas fa-pencil-alt">
-                                              </i>
-                                              Edit
-                                          </a>
-                                          <a class="btn btn-danger btn-sm" href="#">
-                                              <i class="fas fa-trash">
-                                              </i>
-                                              Delete
-                                          </a>
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>Título 1</td>
-                                      <td>Terror</td>
-                                      <td><span class="badge badge-success">Lido</span></td>
-                                      <td>
-                                          <span class="fa fa-star checked"></span>
-                                          <span class="fa fa-star checked"></span>
-                                          <span class="fa fa-star checked"></span>
-                                          <span class="fa fa-star"></span>
-                                          <span class="fa fa-star"></span>
-                                      </td>
-                                      <td class="text-right">
-                                          <a class="btn btn-primary btn-sm" href="#">
-                                              <i class="fas fa-folder">
-                                              </i>
-                                              View
-                                          </a>
-                                          <a class="btn btn-info btn-sm" href="#">
-                                              <i class="fas fa-pencil-alt">
-                                              </i>
-                                              Edit
-                                          </a>
-                                          <a class="btn btn-danger btn-sm" href="#">
-                                              <i class="fas fa-trash">
-                                              </i>
-                                              Delete
-                                          </a>
-                                      </td>
-                                  </tr>
+				</form>
+			</div>
+		</div>
 
-                              </tbody>
-                              <tfoot>
+	</div>
+	<!-- /.container-fluid -->
+</section>
+<script>
+        window.onload = function(){
+			$('.summernote').summernote({
+				height: 120,
+				disableResizeEditor: true
+			});
 
-                              </tfoot>
-                          </table>
-                      </div>
-                      <!-- /.card-body -->
-                  </div>
-                  <!-- /.card -->
+            livros = {{livros | js}}
+            $('#selectLivro').on('change', function (e) {
+                var optionSelected = $("option:selected", this);
+                var valueSelected = this.value;
+                if(!valueSelected)
+                    $("#autor").val('');
+                else{
+                    for(const livro of livros) {
+                        if(livro.id == valueSelected)
+                            $("#autor").val(livro.autor);
+                    }
+                }
+            });
+        }
 
-
-              </div>
-              <!-- /.col -->
-          </div>
-          <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-  </section>
-  <!-- /.content -->
+    </script>
+<!-- /.content -->
 {% endblock content %}

@@ -1,13 +1,14 @@
 from ..models import Leitura
 
 def getAll():
+
     return Leitura.objects.all()
 
 def getById(id):
     return Leitura.objects.get(id=id)
 
 def save(leitura):
-    return Leitura.objects.create(livro = leitura.livro, nota = leitura.nota, status = leitura.status)
+    return Leitura.objects.create(livro = leitura.livro, nota = leitura.nota, status = leitura.status, resenha=leitura.resenha)
 
 
 def update(old_leitura, new_leitura):
