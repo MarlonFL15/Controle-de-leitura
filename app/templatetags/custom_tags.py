@@ -10,3 +10,7 @@ def addClass(value, arg):
 @register.filter(is_safe=True)
 def js(obj):
     return mark_safe(json.dumps(obj))
+
+@register.filter(name='times')
+def times(number):
+    return range(number)

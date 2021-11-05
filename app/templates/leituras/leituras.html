@@ -1,5 +1,5 @@
 {% extends "base.html"%}
-
+{% load custom_tags %}
 {% block title %}
 Leituras
 {% endblock title %}
@@ -37,96 +37,45 @@ Leituras
 								<tr>
 									<td>{{leitura.livro}}</td>
 									<td>{{leitura.generos}}</td>
+									<td>
+										{% if leitura.status == 'N' %}
+    										<span class="badge badge-danger">{{leitura.get_status}}</span>
+										{% elif leitura.status == 'LI' %}
+    										<span class="badge badge-success">{{leitura.get_status}}</span>
+										{% else %}
+											<span class="badge badge-warning">{{leitura.get_status}}</span>
+										{% endif %}
+									</td>
+									<td>
+										{% for i in 5|times %}
+
+											{% if leitura.nota >= i %}
+												<span  style="color: #fcd93a" class="fa fa-star"></span>
+											{% else %}
+												<span class="fa fa-star"></span>
+											{% endif %}
+										{% endfor %}
+									</td>
+									<td class="text-right">
+									<a class="btn btn-primary btn-sm" href="#">
+										<i class="fas fa-folder">
+										</i>
+										View
+									</a>
+									<a class="btn btn-info btn-sm" href="#">
+										<i class="fas fa-pencil-alt">
+										</i>
+										Edit
+									</a>
+									<a class="btn btn-danger btn-sm" href="#">
+										<i class="fas fa-trash">
+										</i>
+										Delete
+									</a>
+								</td>
 								</tr>
 							{% endfor%}
-							<tr>
-								<td>Título 1</td>
-								<td>Terror</td>
-								<td><span class="badge badge-success">Lido</span></td>
-								<td>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-								</td>
-								<td class="text-right">
-									<a class="btn btn-primary btn-sm" href="#">
-										<i class="fas fa-folder">
-										</i>
-										View
-									</a>
-									<a class="btn btn-info btn-sm" href="#">
-										<i class="fas fa-pencil-alt">
-										</i>
-										Edit
-									</a>
-									<a class="btn btn-danger btn-sm" href="#">
-										<i class="fas fa-trash">
-										</i>
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Título 1</td>
-								<td>Terror</td>
-								<td><span class="badge badge-success">Lido</span></td>
-								<td>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-								</td>
-								<td class="text-right">
-									<a class="btn btn-primary btn-sm" href="#">
-										<i class="fas fa-folder">
-										</i>
-										View
-									</a>
-									<a class="btn btn-info btn-sm" href="#">
-										<i class="fas fa-pencil-alt">
-										</i>
-										Edit
-									</a>
-									<a class="btn btn-danger btn-sm" href="#">
-										<i class="fas fa-trash">
-										</i>
-										Delete
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Título 1</td>
-								<td>Terror</td>
-								<td><span class="badge badge-success">Lido</span></td>
-								<td>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-								</td>
-								<td class="text-right">
-									<a class="btn btn-primary btn-sm" href="#">
-										<i class="fas fa-folder">
-										</i>
-										View
-									</a>
-									<a class="btn btn-info btn-sm" href="#">
-										<i class="fas fa-pencil-alt">
-										</i>
-										Edit
-									</a>
-									<a class="btn btn-danger btn-sm" href="#">
-										<i class="fas fa-trash">
-										</i>
-										Delete
-									</a>
-								</td>
-							</tr>
-
+							
 							</tbody>
 							<tfoot>
 

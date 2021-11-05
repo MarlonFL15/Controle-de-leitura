@@ -7,6 +7,7 @@ def leituras(request):
     leituras = list(leitura_service.getAll())
     for index in range(0, len(leituras)):
         leituras[index].generos = ', '.join([x.nome for x in list(leituras[index].livro.generos.all())])
+        print(type(leituras[index].nota))
 
     return render(request, 'leituras/leituras.html', {'leituras': leituras})
 

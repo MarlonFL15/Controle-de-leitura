@@ -1,7 +1,7 @@
 class Leitura():
     def __init__(self, livro, nota, status, resenha):
         self.__livro = livro
-        self.__nota = nota
+        self.__nota = nota if nota else 0
         self.__status = status
         self.__resenha = resenha
 

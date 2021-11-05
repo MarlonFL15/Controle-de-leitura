@@ -26,4 +26,7 @@ class Leitura(models.Model):
     nota = models.IntegerField(null=True, blank=True, default=0)
     resenha = models.TextField(blank=True, null=True)
 
+    @property
+    def get_status(self):
+        return self.get_status_display()
 
