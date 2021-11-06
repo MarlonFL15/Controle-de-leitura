@@ -13,7 +13,9 @@ Leituras
 	<div class="container-fluid">
 		<div class="row" style="margin-bottom: 10px">
 			<div class="col-12" style="display: flex; justify-content: flex-end;">
-				<button class="btn btn-primary">Cadastrar Leitura</button>
+				<a href="{% url 'cadastrar_leitura' %}">
+					<button class="btn btn-primary">Cadastrar Leitura</button>
+				</a>
 			</div>
 		</div>
 
@@ -47,7 +49,7 @@ Leituras
 										{% endif %}
 									</td>
 									<td>
-										{% for i in 5|times %}
+										{% for i in 6|times %}
 
 											{% if leitura.nota >= i %}
 												<span  style="color: #fcd93a" class="fa fa-star"></span>
@@ -57,25 +59,25 @@ Leituras
 										{% endfor %}
 									</td>
 									<td class="text-right">
-									<a class="btn btn-primary btn-sm" href="#">
+									<a class="btn btn-primary btn-sm" href="{% url 'visualizar_leitura' id=leitura.id %}">
 										<i class="fas fa-folder">
 										</i>
-										View
+										Visualizar
 									</a>
-									<a class="btn btn-info btn-sm" href="#">
+									<a class="btn btn-info btn-sm" href="{% url 'editar_leitura' id=leitura.id %}">
 										<i class="fas fa-pencil-alt">
 										</i>
-										Edit
+										Editar
 									</a>
-									<a class="btn btn-danger btn-sm" href="#">
+									<a class="btn btn-danger btn-sm" href="{% url 'deletar_leitura' id=leitura.id %}">
 										<i class="fas fa-trash">
 										</i>
-										Delete
+										Deletar
 									</a>
 								</td>
 								</tr>
 							{% endfor%}
-							
+
 							</tbody>
 							<tfoot>
 
@@ -84,8 +86,6 @@ Leituras
 					</div>
 					<!-- /.card-body -->
 				</div>
-				<!-- /.card -->
-
 
 			</div>
 			<!-- /.col -->

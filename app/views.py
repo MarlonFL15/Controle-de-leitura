@@ -31,3 +31,37 @@ def cadastrar_leitura(request):
         'form': form,
         'livros': livros
     })
+
+def editar_leitura(request, id):
+    leitura_bd = leitura_service.getById(id)
+    livros = livro_service.getAll()
+    form = LeituraForm(request.POST or None, instance=leitura_bd)
+
+    if request.method == "POST":
+        if form.is_valid():
+            nota = request.POST.get('rating')
+            livro = form.cleaned_data['livro']
+            resenha = form.cleaned_data['resenha']
+            status = form.cleaned_data['status']
+            leitura_novo = leitura.Leitura(nota=nota, status=status, resenha=resenha, livro=livro)
+            leitura_service.update(leitura_bd, leitura_novo)
+            return redirect('leituras')
+
+    return render(request, 'leituras/form.html', {
+        'edit': True,
+        'form': form,
+        'livros': livros
+    })
+
+def visualizar_leitura(request, id):
+    leitura_bd = leitura_service.getById(id)
+    return render(request, 'leituras/view.html', {'leitura': leitura_bd})
+
+def deletar_leitura(request, id):
+    leitura_bd = leitura_service.getById(id)
+
+    if request.method == "POST":
+        leitura_service.delete(leitura_bd)
+        return redirect('leituras')
+
+    return render(request, 'leituras/delete.html', {'leitura': leitura_bd})

@@ -7,8 +7,11 @@ Leituras
 
 {% block content %}
 <!-- Content Header (Page header) -->
-{% include 'includes/content-header.html' with title='Cadastrar leitura' %}
-
+{% if edit %}
+	{% include 'includes/content-header.html' with title='Editar Leitura' %}
+{% else %}
+	{% include 'includes/content-header.html' with title='Cadastrar Leitura' %}
+{% endif %}
 <!-- Main content -->
 <section class="content  d-flex justify-content-center">
 	<div class="container-fluid p-5">
@@ -32,6 +35,7 @@ Leituras
 							{{form.status | addClass:'form-control'}}
 						</div>
 						<div class="col-6" >
+
 							<label>Avaliação</label>
 							<div class="form-control" style="border: 0">
 								
@@ -70,7 +74,12 @@ Leituras
 	<!-- /.container-fluid -->
 </section>
 <script>
+
+
+
         window.onload = function(){
+        	$("#rating-{{form.nota.value}}").attr("checked",true);
+			console.log('#rating-{{form.nota.value}}')
 			$('.summernote').summernote({
 				height: 120,
 				disableResizeEditor: true

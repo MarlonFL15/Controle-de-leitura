@@ -12,9 +12,10 @@ def save(leitura):
 
 
 def update(old_leitura, new_leitura):
-    old_leitura.titulo = new_leitura.titulo
+    old_leitura.livro = new_leitura.livro
     old_leitura.nota = new_leitura.nota
     old_leitura.status = new_leitura.status
+    old_leitura.resenha = new_leitura.resenha
     old_leitura.save(force_update=True)
 
 def delete(leitura):
