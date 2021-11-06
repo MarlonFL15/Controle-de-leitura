@@ -62,7 +62,10 @@ Leituras
 						</div>
 					</div>
 					<div class="d-flex justify-content-end b-1">
-						<button class="btn btn-secondary m-1" type="button">Voltar</button>
+						<a href="{% url 'leituras' %}">
+							<button class="btn btn-secondary m-1" type="button">Voltar</button>
+						</a>
+
 						<button class="btn btn-primary m-1" type="submit">Enviar</button>
 					</div>
 
@@ -79,13 +82,18 @@ Leituras
 
         window.onload = function(){
         	$("#rating-{{form.nota.value}}").attr("checked",true);
-			console.log('#rating-{{form.nota.value}}')
+
 			$('.summernote').summernote({
 				height: 120,
 				disableResizeEditor: true
 			});
 
             livros = {{livros | js}}
+            for(const livro of livros) {
+				if(livro.id == {{form.livro.value}})
+					$("#autor").val(livro.autor);
+
+			}
             $('#selectLivro').on('change', function (e) {
                 var optionSelected = $("option:selected", this);
                 var valueSelected = this.value;
