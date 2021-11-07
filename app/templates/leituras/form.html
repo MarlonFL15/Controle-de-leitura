@@ -89,11 +89,7 @@ Leituras
 			});
 
             livros = {{livros | js}}
-            for(const livro of livros) {
-				if(livro.id == {{form.livro.value}})
-					$("#autor").val(livro.autor);
 
-			}
             $('#selectLivro').on('change', function (e) {
                 var optionSelected = $("option:selected", this);
                 var valueSelected = this.value;
@@ -106,6 +102,11 @@ Leituras
                     }
                 }
             });
+            for(const livro of livros) {
+				if(livro.id == {{form.livro.value}})
+					$("#autor").val(livro.autor);
+
+			}
         }
 
     </script>
